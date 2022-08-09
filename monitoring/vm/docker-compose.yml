@@ -1,0 +1,44 @@
+version: '3.5'
+services:
+  grafana:
+    image: grafana/grafana:7.4.2
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    networks:
+      - vm_net
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+  victoriametrics:
+    container_name: victoriametrics
+    image: victoriametrics/victoria-metrics
+    ports:
+      - 8428:8428
+      - 8089:8089
+      - 8089:8089/udp
+      - 2003:2003
+      - 2003:2003/udp
+      - 4242:4242
+    volumes:
+      - vmdata:/storage
+    command:
+      - '--storageDataPath=/storage'
+      - '--graphiteListenAddr=:2003'
+      - '--opentsdbListenAddr=:4242'
+      - '--httpListenAddr=:8428'
+      - '--influxListenAddr=:8089'
+      - '-httpAuth.username=user'
+      - '-httpAuth.password=pass'
+    networks:
+      - vm_net
+    restart: always
+volumes:
+  vmdata: {}
+  grafana_data: {}
+networks:
+  vm_net:
