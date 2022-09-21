@@ -15,10 +15,6 @@ export HOSTNAME=new_custom_nodename
 bash <(curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/monitoring/monitor_add_substrate.sh)
 ```
 
-## To install aleo monitoring enter command:
-```
-bash <(curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/monitoring/monitor_add_aleo.sh)
-```
 
 ## To install cosmos monitoring enter command:
 ```
