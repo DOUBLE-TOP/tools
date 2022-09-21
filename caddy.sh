@@ -48,17 +48,10 @@ https://$app.postcapitalist.io {
 }
 EOF
 
-sudo apt update && sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
-
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key' | sudo apt-key add -
-
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-xcaddy.list
-
-sudo apt update && sudo apt install xcaddy -y
-
-xcaddy build --with github.com/caddy-dns/cloudflare
-
+wget https://github.com/caddyserver/caddy/releases/download/v2.4.6/caddy_2.4.6_linux_amd64.tar.gz
+tar -vxf caddy_2.4.6_linux_amd64.tar.gz
 sudo mv caddy /usr/bin/
+rm -f caddy_2.4.6_linux_amd64.tar.gz
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/caddy.service
 [Unit]
@@ -80,6 +73,6 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 [Install]
 WantedBy=multi-user.target
 EOF
-
-systemctl start caddy
-systemctl enable caddy
+sudo systemctl daemon-reload
+sudo systemctl start caddy
+sudo systemctl enable caddy
