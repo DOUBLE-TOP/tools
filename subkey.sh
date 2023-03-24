@@ -12,7 +12,9 @@ if [ -f $HOME/keys_$1_$2.txt ]; then
     mv $HOME/keys_$1_$2.txt $HOME/keys_$1_$2.txt_$(date +%Y%m%d_%H%M%S)
 fi
 
-for i in {1..$1}; do
+echo "Generating $1 keys for $2 ..........."
+
+for i in $(seq 1 $1); do
     subkey generate -n $2 -w 12 --output-type json | jq -r '.secretPhrase, .ss58PublicKey' | awk '{printf "%s;", $0}' | sed 's/;$/\n/' >> $HOME/keys_$1_$2.txt
 done
 
