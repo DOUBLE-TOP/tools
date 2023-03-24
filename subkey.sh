@@ -9,7 +9,9 @@ else
 fi
 
 if [ -f $HOME/keys_$1_$2.txt ]; then
-    mv $HOME/keys_$1_$2.txt $HOME/keys_$1_$2.txt_$(date +%Y%m%d_%H%M%S)
+    echo "File $HOME/keys_$1_$2.txt is exist"
+    mv $HOME/keys_$1_$2.txt $HOME/keys_$1_$2.txt_bk
+    echo "renamed to $HOME/keys_$1_$2.txt_bk"
 fi
 
 echo "Generating $1 keys for $2 ..........."
