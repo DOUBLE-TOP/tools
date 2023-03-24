@@ -3,7 +3,7 @@
 if [ -f /usr/local/bin/subkey ]; then
     echo "Subkey is already installed"
 else
-    wget -O https://doubletop-bin.ams3.digitaloceanspaces.com/tools/subkey /usr/local/bin/subkey
+    wget -O /usr/local/bin/subkey https://doubletop-bin.ams3.digitaloceanspaces.com/tools/subkey
     chmod +x /usr/local/bin/subkey
     echo "Subkey is installed"
 fi
