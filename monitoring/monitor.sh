@@ -5,13 +5,11 @@ if [ ! $OWNER ]; then
 fi
 echo 'Владелец: ' $OWNER
 sleep 1
-echo 'export OWNER='$OWNER >> $HOME/.profile
 if [ ! $HOSTNAME ]; then
 	read -p "Введите название своего сервера: " HOSTNAME
 fi
 echo 'Название вашего сервера: ' $HOSTNAME
 sleep 1
-echo 'export HOSTNAME='$HOSTNAME >> $HOME/.profile
 
 sudo systemctl stop prometheus && systemctl disable prometheus
 
