@@ -5,10 +5,10 @@ if [ ! $OWNER ]; then
 fi
 echo 'Владелец: ' $OWNER
 sleep 1
-if [ ! $HOSTNAME ]; then
-	read -p "Введите название своего сервера: " HOSTNAME
+if [ ! $NODENAME ]; then
+	read -p "Введите название своего сервера: " NODENAME
 fi
-echo 'Название вашего сервера: ' $HOSTNAME
+echo 'Название вашего сервера: ' $NODENAME
 sleep 1
 
 sudo systemctl stop prometheus && systemctl disable prometheus
@@ -26,7 +26,7 @@ global:
   evaluation_interval: 30s
   external_labels:
     owner: '$OWNER'
-    hostname: '$HOSTNAME'
+    hostname: '$NODENAME'
 scrape_configs:
   - job_name: "node_exporter"
     scrape_interval: 30s
@@ -36,7 +36,7 @@ scrape_configs:
       - source_labels: [__address__]
         regex: '.*'
         target_label: instance
-        replacement: '$HOSTNAME'
+        replacement: '$NODENAME'
 EOF
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/vmagent.service
