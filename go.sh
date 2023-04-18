@@ -2,7 +2,7 @@
 sudo apt update
 sudo apt install mc jq curl build-essential git wget -y
 sudo rm -rf /usr/local/go
-curl https://dl.google.com/go/go1.19.1.linux-amd64.tar.gz | sudo tar -C /usr/local -zxvf -
+curl https://dl.google.com/go/go1.20.3.linux-amd64.tar.gz | sudo tar -C /usr/local -zxvf -
 
 cat <<'EOF' >>$HOME/.profile
 export GOROOT=/usr/local/go
