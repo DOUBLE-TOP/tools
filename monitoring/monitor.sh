@@ -32,11 +32,13 @@ scrape_configs:
     scrape_interval: 30s
     static_configs:
       - targets: ["localhost:9100"]
+        labels:
+          instance: "$(curl -s ifconfig.me)"
     relabel_configs:
-      - source_labels: [__address__]
-        regex: '.*'
-        target_label: instance
-        replacement: '$NODENAME'
+      - source_labels: [instance]
+        regex: '(.+):.*'
+        replacement: '${1}:9100'
+        target_label: '__address__'
 EOF
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/vmagent.service
