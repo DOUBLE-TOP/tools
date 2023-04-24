@@ -11,6 +11,8 @@ fi
 echo 'Название вашего сервера: ' $NODENAME
 sleep 1
 
+sudo systemctl stop prometheus && systemctl disable prometheus
+
 sudo mkdir /etc/prometheus
 
 sudo apt install wget -y
@@ -47,7 +49,7 @@ sudo tee <<EOF >/dev/null /etc/systemd/system/vmagent.service
   Type=simple
   ExecStart=$HOME/vmagent-prod \
   -promscrape.config=/etc/prometheus/prometheus.yml \
-  -remoteWrite.url=http://doubletop:doubletop@vm.razumv.tech:8080/api/v1/write
+  -remoteWrite.url=https://doubletop:doubletop@vm.doubletop.io/api/v1/write
   ExecReload=/bin/kill -HUP $MAINPID
 [Install]
   WantedBy=multi-user.target
