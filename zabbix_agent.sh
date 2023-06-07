@@ -11,9 +11,9 @@ apt-get update
 apt-get install -y zabbix-agent
 
 # Настройка конфигурационного файла агента
-sed -i 's/Server=127.0.0.1/Server=$zabbix_server/g' /etc/zabbix/zabbix_agentd.conf
-sed -i 's/ServerActive=127.0.0.1/ServerActive=$zabbix_server/g' /etc/zabbix/zabbix_agentd.conf
-sed -i 's/Hostname=Zabbix server/Hostname=$profile/g' /etc/zabbix/zabbix_agentd.conf
+sed -i "s/Server=127.0.0.1/Server=$zabbix_server/g" /etc/zabbix/zabbix_agentd.conf
+sed -i "s/ServerActive=127.0.0.1/ServerActive=$zabbix_server/g" /etc/zabbix/zabbix_agentd.conf
+sed -i "s/Hostname=Zabbix server/Hostname=$profile/g" /etc/zabbix/zabbix_agentd.conf
 
 # Включение и запуск агента с помощью systemd
 systemctl enable zabbix-agent
