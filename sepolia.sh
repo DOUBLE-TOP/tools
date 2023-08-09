@@ -53,6 +53,7 @@ function main {
     create_user_geth
     update_compose_v2
     src_geth_client
+    ethd_down
     config_geth_client
     ethd_up
 }
