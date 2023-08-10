@@ -31,7 +31,7 @@ function src_geth_client {
 
 function config_geth_client {
     sudo -u geth cp /home/geth/eth-docker/default.env /home/geth/eth-docker/.env
-    sudo -u geth sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth/eth-docker/.env
+    sudo -u geth sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=teku-cl-only.yml:geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/EL_RPC_PORT=8545/EL_RPC_PORT=58545/g' /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/EL_WS_PORT=8546/EL_WS_PORT=58546/g' /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/EL_P2P_PORT=30303/EL_P2P_PORT=50303/g' /home/geth/eth-docker/.env
