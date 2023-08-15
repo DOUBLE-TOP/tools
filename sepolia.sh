@@ -37,7 +37,7 @@ function config_geth_client {
     sudo -u geth sed -i 's/EL_P2P_PORT=30303/EL_P2P_PORT=50303/g' /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/GRAFANA_PORT=3000/GRAFANA_PORT=5000/g' /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/NETWORK=goerli/NETWORK=sepolia/g' /home/geth/eth-docker/.env
-    sudo -u geth sed -i 's/RAPID_SYNC_URL=/RAPID_SYNC_URL=\"https:\/\/sepolia.beaconstate.info\"/g' /home/geth/eth-docker/.env
+    sudo -u geth sed "s/RAPID_SYNC_URL=.*/RAPID_SYNC_URL=\"https:\/\/endpoints.omniatech.io\/v1\/eth\/sepolia\/public\"/" /home/geth/eth-docker/.env
     sudo -u geth sed -i 's/FEE_RECIPIENT=/FEE_RECIPIENT=0xe868bE65C50b61E81A3fC5cB5A7916090B05eb2A/g' /home/geth/eth-docker/.env
 }
 
