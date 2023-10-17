@@ -54,7 +54,9 @@ install() {
 		sudo apt upgrade -y
 		sudo apt install curl apt-transport-https ca-certificates gnupg lsb-release apparmor -y
 		. /etc/*-release
-		wget -qO- "https://download.docker.com/linux/${DISTRIB_ID,,}/gpg" | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  		if [ ! -f /usr/share/keyrings/docker-archive-keyring.gpg ]; then
+		    wget -qO- "https://download.docker.com/linux/${DISTRIB_ID,,}/gpg" | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+		fi
 		echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 		sudo apt update
 		sudo apt install docker-ce docker-ce-cli containerd.io -y
