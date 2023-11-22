@@ -26,7 +26,7 @@ global:
   evaluation_interval: 30s
   external_labels:
     owner: '$OWNER'
-    hostname: '$NODENAME'
+    hostname: '${NODENAME}'
 scrape_configs:
   - job_name: "node_exporter"
     scrape_interval: 30s
