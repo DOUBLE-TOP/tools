@@ -33,11 +33,11 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9100"]
         labels:
-          instance: "$(curl -s ifconfig.me)"
+          instance: "$(curl -s ipv4.icanhazip.com)"
     relabel_configs:
       - source_labels: [instance]
         regex: '(.+):.*'
-        replacement: '${1}:9100'
+        replacement: '\${1}:9100'
         target_label: '__address__'
 EOF
 
