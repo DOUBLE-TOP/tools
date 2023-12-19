@@ -4,5 +4,5 @@ qm set 3336 --ide2 local:cloudinit
 qm set 3336 --boot order=scsi0
 qm set 3336 --serial0 socket --vga serial0
 qm set 3336 --sshkey ~/.ssh/razumv.pub
-qm set 3336 --cipassword N23Cem2e --ciuser user
+qm set 3336 --cipassword 12345678 --ciuser user
 qm template 3336
