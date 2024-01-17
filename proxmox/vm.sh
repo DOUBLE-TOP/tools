@@ -1,12 +1,24 @@
-id=100
-name=node1.doubletop
-ip=178.211.139.198
-gw=178.211.139.129
-disk=27748
+#!/bin/bash
+
+disk=327748
 memory=12000
-cores=2
-cpuunits=4
-qm clone 3336 $id --name $name
-qm resize $id scsi0 +${disk}G
-qm set $id --ipconfig0 ip=$ip/25,gw=$gw --memory $memory --cores $cores --cpuunits $cpuunits
-qm start $id
+template_vm_id=3336
+bridge="vmbr0"
+cores=4
+sockets=2
+vcpus=8
+
+while IFS=';' read -r id name ip gw mac
+do
+    [[ "$id" =~ ^#.*$ || -z "$id" ]] && continue 
+
+    qm clone $template_vm_id $id --name $name
+
+    qm resize $id scsi0 +${disk}G
+
+    qm set $id --ipconfig0 ip=$ip/25,gw=$gw --memory $memory --cores $cores --sockets $sockets --vcpus $vcpus --net0 model=virtio,bridge=$bridge,macaddr=$mac
+
+    qm start $id
+
+    echo "VM $name created successfully"
+done < vm_info.txt
