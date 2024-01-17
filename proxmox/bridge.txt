@@ -1,0 +1,15 @@
+auto eth0
+iface eth0 inet static
+        address $address
+        netmask $netmask
+        # IPv6
+        post-up ip -6 a a $address_ipv6/64 dev eth0
+        post-up ip -6 r a default via $gateway_ipv6
+auto vmbr0
+iface vmbr0 inet static
+        address $address
+        netmask $netmask
+        gateway $gateway
+        bridge_ports eth0
+        bridge_stp off
+        bridge_fd 0
