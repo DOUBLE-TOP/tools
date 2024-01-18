@@ -5,10 +5,10 @@ sudo apt-get update
 sudo apt-get install -y wget
 
 # Загрузка и установка Zabbix agent
-echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
-sudo apt-get update
-sudo apt-get install libssl1.1 libldap2-dev -y
-wget https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu22.04_all.deb
+# echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+# sudo apt-get update
+# sudo apt-get install libssl1.1 libldap2-dev -y
+wget https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu20.04_all.deb
 sudo dpkg -i zabbix-release_6.2-1+ubuntu20.04_all.deb
 sudo apt-get update
 sudo apt-get install -y zabbix-agent
