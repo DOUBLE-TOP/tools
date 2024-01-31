@@ -12,6 +12,7 @@ echo 'Название вашего сервера: ' $NODENAME
 sleep 1
 
 sudo systemctl stop prometheus && systemctl disable prometheus
+sudo systemctl stop node_exporter && systemctl disable node_exporter
 
 sudo mkdir /etc/prometheus
 
