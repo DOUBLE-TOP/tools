@@ -1,14 +1,15 @@
-user=user
-password=user_password
-vg_name=my_vg
-disk_name=vm-3336-disk-0
-size=30G
-lvcreate -L 30G -n $disk_name $vg_name
-qm create 3336 --memory 12048 -vcpus 8 --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci 
-qm set 3336 --scsi0 my_vg:$disk_name,size=$size
-qm set 3336 --ide2 local:cloudinit
-qm set 3336 --boot order=scsi0
-qm set 3336 --serial0 socket --vga serial0
-qm set 3336 --sshkey ~/.ssh/razumv.pub
-qm set 3336 --cipassword $password --ciuser $user
-qm template 3336
+VMID=9000
+STORAGE_POOL=$(vgs --noheadings | awk '{print $1}' | tr -d ' ')
+TEMPLATE_NAME="ubuntu-20.04-template"
+ISO_PATH="/var/lib/vz/template/iso/ubuntu-20.04-minimal-cloudimg-amd64.img"
+DISK_SIZE="5"
+
+qm create $VMID --name $TEMPLATE_NAME --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci 
+
+qm set $VMID --scsi0 $STORAGE_POOL:0,import-from=$ISO_PATH
+
+qm set $VMID --ide2 local:cloudinit
+
+qm set $VMID --boot c --bootdisk scsi0
+qm set $VMID --serial0 socket --vga serial0
+qm template $VMID
