@@ -1,4 +1,15 @@
 VMID=9000
+is_vmid_busy() {
+    qm_status_output=$(qm status $1 2>&1)
+    if [ $? -eq 0 ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+while is_vmid_busy "$VMID"; do
+    ((VMID++))
+done
 apt-get install libguestfs-tools -y
 STORAGE_POOL=$(vgs --noheadings | awk '{print $1}' | tr -d ' ')
 TEMPLATE_NAME="ubuntu-20.04-template"
