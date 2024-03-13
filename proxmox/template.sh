@@ -1,10 +1,10 @@
 VMID=9000
 is_vmid_busy() {
     qm_status_output=$(qm status $1 2>&1)
-    if [ $? -eq 0 ]; then
-        return 1
-    else
+    if [[ "$qm_status_output" == *"does not exist"* ]]; then
         return 0
+    else
+        return 1
     fi
 }
 while is_vmid_busy "$VMID"; do
