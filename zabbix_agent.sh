@@ -19,5 +19,5 @@ sudo sed -i "s/ServerActive=127.0.0.1/ServerActive=$zabbix_server/g" /etc/zabbix
 sudo sed -i "s/Hostname=Zabbix server/Hostname=$profile/g" /etc/zabbix/zabbix_agentd.conf
 
 # Включение и запуск агента с помощью systemd
-systemctl enable zabbix-agent
-systemctl start zabbix-agent
+sudo systemctl enable zabbix-agent
+sudo systemctl start zabbix-agent
