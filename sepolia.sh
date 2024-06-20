@@ -16,7 +16,7 @@ if ! id "geth_sepolia" &>/dev/null; then
     useradd -s /bin/bash -m geth_sepolia
     sudo usermod -aG sudo geth_sepolia
     sudo usermod -aG docker geth_sepolia
-    echo "geth_sepolia ALL=(ALL) NOPASSWD: /usr/bin/sudo" | sudo tee -a /etc/sudoers
+    sudo passwd geth_sepolia    
 else
     echo "User 'geth_sepolia' already exists."
 fi

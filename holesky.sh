@@ -16,7 +16,7 @@ if ! id "geth_holesky" &>/dev/null; then
     useradd -s /bin/bash -m geth_holesky
     sudo usermod -aG sudo geth_holesky
     sudo usermod -aG docker geth_holesky
-    echo "geth_holesky ALL=(ALL) NOPASSWD: /usr/bin/sudo" | sudo tee -a /etc/sudoers
+    sudo passwd geth_holesky
 else
     echo "User 'geth_holesky' already exists."
 fi
