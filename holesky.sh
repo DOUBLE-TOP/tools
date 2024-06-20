@@ -22,7 +22,7 @@ else
 fi
 
 if [ ! -d "/home/geth_holesky/eth-docker" ]; then
-        sudo -u geth git clone https://github.com/eth-educators/eth-docker.git /home/geth_holesky/eth-docker
+        sudo -u geth_holesky git clone https://github.com/eth-educators/eth-docker.git /home/geth_holesky/eth-docker
     else
         echo "Directory '/home/geth_holesky/eth-docker' already exists."
 fi
@@ -42,4 +42,4 @@ sudo -u geth_holesky sed -i 's/FEE_RECIPIENT=/FEE_RECIPIENT=0xd9264738573E25CB91
 
 
 export COMPOSE_PROJECT_NAME=holesky
-sudo -u geth_holesky /home/geth/eth-docker/ethd up
+sudo -u geth_holesky /home/geth_holesky/eth-docker/ethd up
