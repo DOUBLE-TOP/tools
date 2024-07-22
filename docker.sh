@@ -68,8 +68,8 @@ install() {
 		sudo apt update
 		sudo apt upgrade -y
 		sudo apt install wget jq -y
-		local docker_compose_version=v2.16.0
-# 		local docker_compose_version=`wget -qO- https://api.github.com/repos/docker/compose/releases/latest | jq -r ".tag_name"`
+#		local docker_compose_version=v2.16.0
+ 		docker_compose_version=$(wget -qO- https://api.github.com/repos/docker/compose/releases/latest | jq -r ".tag_name")
 		sudo wget -O /usr/bin/docker-compose "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-`uname -s`-`uname -m`"
 		sudo chmod +x /usr/bin/docker-compose
 		. $HOME/.bash_profile
