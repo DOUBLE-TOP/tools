@@ -9,7 +9,7 @@ sudo apt-get install -y wget
 # sudo apt-get update
 # sudo apt-get install libssl1.1 libldap2-dev -y
 sudo apt-get remove --purge zabbix-agent -y
-sudo wget https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu20.04_all.deb
+sudo wget -O zabbix-release_6.2-1+ubuntu20.04_all.deb https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu20.04_all.deb
 sudo dpkg -i zabbix-release_6.2-1+ubuntu20.04_all.deb
 sudo apt-get update
 sudo apt-get install --reinstall zabbix-agent -y
