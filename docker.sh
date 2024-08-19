@@ -73,6 +73,11 @@ install() {
 		sudo wget -O /usr/bin/docker-compose "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-`uname -s`-`uname -m`"
 		sudo chmod +x /usr/bin/docker-compose
 		. $HOME/.bash_profile
+		# Install docker compose plugin 2
+		DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+		mkdir -p $DOCKER_CONFIG/cli-plugins
+		curl -SL https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+		chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 	fi
 	if [ "$dive" = "true" ] && ! dpkg -s dive | grep -q "ok installed"; then
 		echo -e "${C_LGn}Dive installation...${RES}"
