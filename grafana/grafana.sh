@@ -26,5 +26,8 @@ sudo systemctl enable prometheus
 #Устанавливаем Grafana
 wget https://dl.grafana.com/oss/release/grafana_6.4.3_amd64.deb
 dpkg -i grafana_6.4.3_amd64.deb
+
 sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
+
+rm -rf grafana_6.4.3_amd64.deb
