@@ -2,8 +2,9 @@
 
 #Устанавливаем Prometheus
 sudo apt install prometheus
+apt install libfontconfig1
 
- sudo tee <<EOF >/dev/null /etc/prometheus/prometheus.yml
+sudo tee <<EOF >/dev/null /etc/prometheus/prometheus.yml
 global:
   scrape_interval:     15s
   evaluation_interval: 15s
