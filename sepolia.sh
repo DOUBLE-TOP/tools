@@ -36,9 +36,9 @@ sudo -u geth_sepolia sed -i 's/CL_QUIC_PORT=.*/CL_QUIC_PORT=59001/g' /home/geth_
 sudo -u geth_sepolia sed -i 's/GRAFANA_PORT=.*/GRAFANA_PORT=53000/g' /home/geth_sepolia/eth-docker/.env
 sudo -u geth_sepolia sed -i 's/EL_RPC_PORT=.*/EL_RPC_PORT=58545/g' /home/geth_sepolia/eth-docker/.env
 sudo -u geth_sepolia sed -i 's/EL_WS_PORT=.*/EL_WS_PORT=58546/g' /home/geth_sepolia/eth-docker/.env
-sudo -u geth_sepolia sed -i 's/NETWORK=goerli/NETWORK=sepolia/g' /home/geth_sepolia/eth-docker/.env
-sudo -u geth_sepolia sed -i 's/RAPID_SYNC_URL=/RAPID_SYNC_URL=\"https:\/\/sepolia.beaconstate.info\"/g' /home/geth_sepolia/eth-docker/.env
-sudo -u geth_sepolia sed -i 's/FEE_RECIPIENT=/FEE_RECIPIENT=0xd9264738573E25CB9149de0708b36527d56B59bd/g' /home/geth_sepolia/eth-docker/.env
+sudo -u geth_sepolia sed -i 's/NETWORK=.*/NETWORK=sepolia/g' /home/geth_sepolia/eth-docker/.env
+sudo -u geth_sepolia sed -i 's/RAPID_SYNC_URL=.*/RAPID_SYNC_URL=\"https:\/\/sepolia.beaconstate.info\"/g' /home/geth_sepolia/eth-docker/.env
+sudo -u geth_sepolia sed -i 's/FEE_RECIPIENT=.*/FEE_RECIPIENT=0xd9264738573E25CB9149de0708b36527d56B59bd/g' /home/geth_sepolia/eth-docker/.env
 
 
 export COMPOSE_PROJECT_NAME=sepolia
