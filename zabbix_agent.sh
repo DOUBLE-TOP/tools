@@ -15,8 +15,8 @@
 apt-get update
 apt-get install -y wget
 apt-get remove --purge zabbix-agent -y
-wget -O zabbix-release_6.2-1+ubuntu20.04_all.deb https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu20.04_all.deb
-dpkg -i zabbix-release_6.2-1+ubuntu20.04_all.deb
+wget -O zabbix-release_6.2-1+ubuntu22.04_all.deb https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-1+ubuntu22.04_all.deb
+dpkg -i zabbix-release_6.2-1+ubuntu22.04_all.deb
 apt-get update
 apt-get install --reinstall zabbix-agent -y
 sed -i "s/Server=127.0.0.1/Server=$zabbix_server/g" /etc/zabbix/zabbix_agentd.conf
