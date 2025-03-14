@@ -48,7 +48,7 @@ error=$(echo "$response" | jq -r '.error')
 
 # Check the response message
 if [[ "$message" == "ok" ]]; then
-    echo "Сервер добавлен в мониторинг"
+    echo "Сервер добавлен в мониторинг, появится в Графане через ~1 минуту."
 else
     echo "Ошибка: $error"
 fi
