@@ -19,7 +19,7 @@ echo "Отключили prometheus (если он был)"
 
 sudo apt-get remove prometheus -y &>/dev/null
 sudo rm -rf /etc/prometheus /var/lib/prometheus
-sudo apt-get autoremove -y &>/dev/null
+sudo apt-get autoremove -y
 echo "Удалили prometheus (если он был)"
 
 sudo apt-get update
