@@ -22,8 +22,8 @@ sudo rm -rf /etc/prometheus /var/lib/prometheus
 sudo apt-get autoremove -y &>/dev/null
 echo "Удалили prometheus (если он был)"
 
-sudo apt-get update &>/dev/null
-sudo apt-get install prometheus-node-exporter -y &>/dev/null
+sudo apt-get update
+sudo apt-get install prometheus-node-exporter -y
 echo "Ставим prometheus-node-exporter"
 sudo systemctl enable prometheus-node-exporter && sudo systemctl restart prometheus-node-exporter
 echo "Включаем prometheus-node-exporter"
