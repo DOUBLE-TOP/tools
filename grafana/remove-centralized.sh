@@ -14,7 +14,6 @@ response=$(curl -s -X POST "$url" \
     -H "Content-Type: application/json" \
     -d "{\"apikey\": \"$api_key\"}")
 
-echo "$response"
 # Extract message and error fields
 message=$(echo "$response" | jq -r '.message')
 error=$(echo "$response" | jq -r '.error')
