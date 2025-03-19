@@ -62,6 +62,8 @@ install() {
 		sudo apt install docker-ce docker-ce-cli containerd.io -y
 		docker_version=`apt-cache madison docker-ce | grep -oPm1 "(?<=docker-ce \| )([^_]+)(?= \| https)"`
 		sudo apt install docker-ce="$docker_version" docker-ce-cli="$docker_version" containerd.io -y
+        else
+	       echo "Docker is already installed"
 	fi
 	if ! docker-compose --version; then
 		echo -e "${C_LGn}Docker Сompose installation...${RES}"
@@ -78,6 +80,8 @@ install() {
 		mkdir -p $DOCKER_CONFIG/cli-plugins
 		curl -SL https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
 		chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+        else
+	        echo "Docker-compose is already installed"
 	fi
 	if [ "$dive" = "true" ] && ! dpkg -s dive | grep -q "ok installed"; then
 		echo -e "${C_LGn}Dive installation...${RES}"
@@ -85,6 +89,7 @@ install() {
 		sudo apt install ./dive_0.9.2_linux_amd64.deb
 		rm -rf dive_0.9.2_linux_amd64.deb
 	fi
+        echo "Docker install script finished"
 }
 uninstall() {
 	echo -e "${C_LGn}Docker uninstalling...${RES}"
