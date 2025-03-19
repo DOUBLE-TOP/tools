@@ -5,7 +5,7 @@ dive="false"
 function="install"
 
 # Options
-. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/colors.sh) --
+. <(wget -4qO- https://raw.githubusercontent.com/SecorD0/utils/main/colors.sh) --
 option_value(){ echo "$1" | sed -e 's%^--[^=]*=%%g; s%^-[^=]*=%%g'; }
 while test $# -gt 0; do
 	case "$1" in
