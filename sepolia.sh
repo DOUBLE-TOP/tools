@@ -29,7 +29,7 @@ fi
 
 
 sudo -u geth_sepolia cp /home/geth_sepolia/eth-docker/default.env /home/geth_sepolia/eth-docker/.env
-sudo -u geth_sepolia sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=prysm-cl-only.yml:geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth_sepolia/eth-docker/.env
+sudo -u geth_sepolia sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=teku.yml:geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth_sepolia/eth-docker/.env
 sudo -u geth_sepolia sed -i 's/EL_P2P_PORT=.*/EL_P2P_PORT=50303/g' /home/geth_sepolia/eth-docker/.env
 sudo -u geth_sepolia sed -i 's/CL_P2P_PORT=.*/CL_P2P_PORT=59000/g' /home/geth_sepolia/eth-docker/.env
 sudo -u geth_sepolia sed -i 's/CL_QUIC_PORT=.*/CL_QUIC_PORT=59001/g' /home/geth_sepolia/eth-docker/.env
