@@ -16,7 +16,7 @@ LOGS="/var/log/syslog
 /var/log/messages"
 
 CONFIG="{
-	daily
+	hourly
 	rotate 4
 	size 100M
 	missingok
