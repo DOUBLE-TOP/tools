@@ -51,5 +51,8 @@ else
 	echo "Создан $FILE с настройками: daily, rotate 4, size 100M."
 fi
 
+sudo cp /etc/cron.daily/logrotate /etc/cron.hourly/logrotate
+sudo chmod +x /etc/cron.hourly/logrotate
+
 echo "Запускаем logrotate"
 sudo logrotate -f /etc/logrotate.conf
