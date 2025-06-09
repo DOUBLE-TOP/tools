@@ -21,7 +21,7 @@ LOGS="/var/log/syslog
 
 CONFIG="{
 	hourly
-	rotate 4
+	rotate 0
 	size 100M
 	missingok
 	notifempty
