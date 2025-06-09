@@ -25,6 +25,7 @@ CONFIG="{
 	size 100M
 	missingok
 	notifempty
+ 	copytruncate
 	compress
 	delaycompress
 	sharedscripts
