@@ -29,7 +29,7 @@ fi
 
 
 sudo -u geth_holesky cp /home/geth_holesky/eth-docker/default.env /home/geth_holesky/eth-docker/.env
-sudo -u geth_holesky sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=teku-cl-only.yml:geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth_holesky/eth-docker/.env
+sudo -u geth_holesky sed -i 's/COMPOSE_FILE=.*/COMPOSE_FILE=lighthouse-cl-only.yml:geth.yml:grafana.yml:grafana-shared.yml:el-shared.yml/g' /home/geth_holesky/eth-docker/.env
 sudo -u geth_holesky sed -i 's/EL_P2P_PORT=.*/EL_P2P_PORT=40303/g' /home/geth_holesky/eth-docker/.env
 sudo -u geth_holesky sed -i 's/CL_P2P_PORT=.*/CL_P2P_PORT=49000/g' /home/geth_holesky/eth-docker/.env
 sudo -u geth_holesky sed -i 's/CL_QUIC_PORT=.*/CL_QUIC_PORT=49001/g' /home/geth_holesky/eth-docker/.env
