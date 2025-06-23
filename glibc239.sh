@@ -37,7 +37,7 @@ make -j"$(nproc)"
 echo "Installing GLIBC to $INSTALL_DIR..."
 make install
 
-Cleanup
+# Cleanup
 rm -rf "$SRC_DIR" "$BUILD_DIR"
 
 echo -e "\n✅ GLIBC $GLIBC_VERSION installed to $INSTALL_DIR"
