@@ -10,7 +10,7 @@ SRC_DIR="/tmp/glibc-src"
 # Install dependencies
 echo "Installing build dependencies..."
 sudo apt update
-sudo apt install -y build-essential manpages-dev
+sudo apt install -y build-essential manpages-dev gawk bison
 
 # Download GLIBC source
 mkdir -p "$SRC_DIR"
